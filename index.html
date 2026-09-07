@@ -1,0 +1,1005 @@
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Cimerwell - Agentes comerciales especializados en producción y gestión de importación y exportación." />
+
+  <title>Cimerwell</title>
+
+  <!-- Google Font (similar a la referencia) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Bootstrap 5 -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+    crossorigin="anonymous"
+  />
+
+  <!-- Bootstrap Icons (para el check/íconos del hero) -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+  />
+
+  <!-- Estilos base -->
+  <style>
+    :root{
+      --brand: #0ea5a4;           /* teal botones */
+      --brand-dark: #0a7f7e;
+      --ink: #0b1b2a;             /* azul profundo */
+      --muted: #6b7280;
+    }
+
+    body{
+      font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: #0f172a;
+    }
+
+    /* Navbar */
+    .navbar-brand{
+      font-weight: 700;
+      letter-spacing: .2px;
+      color: #0b2b5a;
+    }
+
+    .nav-link{
+      color: #1f2937;
+      font-weight: 500;
+    }
+    .nav-link:hover{ color: #0b2b5a; }
+
+    .btn-brand{
+      background: var(--brand);
+      border-color: var(--brand);
+      color: #fff;
+      font-weight: 600;
+      padding: .75rem 1.1rem;
+      border-radius: .6rem;
+    }
+    .btn-brand:hover{
+      background: var(--brand-dark);
+      border-color: var(--brand-dark);
+      color: #fff;
+    }
+
+    .btn-ghost{
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      color: #111827;
+      font-weight: 600;
+      padding: .75rem 1.1rem;
+      border-radius: .6rem;
+    }
+    .btn-ghost:hover{
+      background: #f9fafb;
+    }
+
+    /* Hero (lo dejamos listo para el body) */
+    .hero{
+      position: relative;
+      min-height: 78vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: #0b1220;
+    }
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: linear-gradient(110deg, rgba(2,6,23,.86) 0%, rgba(2,6,23,.55) 55%, rgba(2,6,23,.20) 100%);
+      z-index: 1;
+    }
+    .hero > *{
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero h1{
+      color: #fff;
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.5px;
+    }
+
+    .hero p{
+      color: rgba(255,255,255,.80);
+      max-width: 56ch;
+    }
+
+    .hero-note{
+      color: rgba(255,255,255,.75);
+      font-size: .95rem;
+      display: flex;
+      gap: .6rem;
+      align-items: center;
+      margin-top: 1rem;
+    }
+
+    .hero-note .dot{
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      background: rgba(14,165,164,.18);
+      display: grid;
+      place-items: center;
+      color: var(--brand);
+      font-weight: 700;
+    }
+
+    /* Flecha abajo */
+    .scroll-indicator{
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 18px;
+      z-index: 2;
+      color: rgba(255,255,255,.7);
+      font-size: 1.6rem;
+    }
+
+    /* ===== Nosotros / Soluciones ===== */
+.section-soluciones{
+  padding: 5rem 0;
+  background: #fff;
+}
+
+.section-soluciones .section-title{
+  font-weight: 800;
+  letter-spacing: -0.4px;
+  color: #0f172a;
+}
+
+.section-soluciones .section-subtitle{
+  color: #6b7280;
+  margin-top: .75rem;
+}
+
+.feature-card{
+  background: #e9f7f7;          /* celeste muy suave */
+  border: 0;
+  border-radius: 14px;
+  padding: 2rem 1.75rem;
+  height: 100%;
+}
+
+.feature-icon{
+  width: 64px;
+  height: 64px;
+  border-radius: 10px;
+  background: var(--brand);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-size: 1.75rem;
+  margin-bottom: 1.4rem;
+}
+
+.feature-card h3{
+  font-size: 1.1rem;
+  font-weight: 800;
+  margin-bottom: .85rem;
+  color: #0f172a;
+}
+
+.feature-card p{
+  color: #6b7280;
+  margin: 0;
+  line-height: 1.8;
+  font-size: .98rem;
+}
+
+/* ===== Servicios / Por qué elegir ===== */
+.section-porque{
+  padding: 5rem 0;
+  background: #f3ece4; /* beige suave como la referencia */
+}
+
+.section-porque h2{
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: #0f172a;
+}
+
+.section-porque .lead-muted{
+  color: #6b7280;
+  max-width: 52ch;
+}
+
+.benefit-item{
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  margin-top: 1.6rem;
+}
+
+.benefit-icon{
+  width: 54px;
+  height: 54px;
+  border-radius: 10px;
+  background: var(--brand);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-size: 1.35rem;
+  flex: 0 0 auto;
+}
+
+.benefit-title{
+  font-weight: 800;
+  margin: 0 0 .35rem 0;
+  color: #0f172a;
+  font-size: 1.05rem;
+}
+
+.benefit-text{
+  margin: 0;
+  color: #6b7280;
+  line-height: 1.7;
+  max-width: 58ch;
+}
+
+.media-wrap{
+  position: relative;
+}
+
+.media-card{
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, .12);
+}
+
+.media-card img{
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  display: block;
+}
+
+.floating-badge{
+  position: absolute;
+  left: -40px;
+  bottom: 26px;
+  background: #fff;
+  border-radius: 14px;
+  padding: 1.15rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 16px 35px rgba(15, 23, 42, .12);
+}
+
+.badge-icon{
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  background: var(--brand);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-size: 1.6rem;
+}
+
+.badge-number{
+  font-weight: 900;
+  font-size: 1.75rem;
+  line-height: 1;
+  margin: 0;
+  color: #0f172a;
+}
+
+.badge-caption{
+  margin: .15rem 0 0 0;
+  color: #6b7280;
+  font-size: .95rem;
+  line-height: 1.2;
+}
+
+/* Responsive: que el badge no se salga en mobile */
+@media (max-width: 991.98px){
+  .floating-badge{
+    left: 16px;
+    bottom: 16px;
+  }
+  .media-card img{
+    height: 320px;
+  }
+}
+
+/* ===== Productos y Catálogos ===== */
+.section-productos{
+  padding: 5rem 0;
+  background: #fff;
+}
+
+.section-productos .section-title{
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: #0f172a;
+}
+
+.section-productos .section-subtitle{
+  color: #6b7280;
+  margin-top: .75rem;
+}
+
+.product-card{
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  height: 320px;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, .10);
+  background: #111827;
+}
+
+.product-card .bg{
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.02);
+}
+
+.product-card::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: linear-gradient(
+    to top,
+    rgba(2,6,23,.86) 0%,
+    rgba(2,6,23,.55) 40%,
+    rgba(2,6,23,.15) 100%
+  );
+}
+
+.product-content{
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.6rem;
+}
+
+.product-title{
+  color: #fff;
+  font-weight: 800;
+  margin: 0 0 .35rem 0;
+  font-size: 1.35rem;
+}
+
+.product-desc{
+  color: rgba(255,255,255,.80);
+  margin: 0 0 1rem 0;
+  font-size: .98rem;
+}
+
+.product-link{
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  color: var(--brand);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.product-link:hover{
+  color: #11c3c1;
+  text-decoration: underline;
+}
+
+.product-link i{
+  font-size: 1.05rem;
+}
+
+/* Responsive */
+@media (max-width: 575.98px){
+  .product-card{ height: 300px; }
+}
+
+/* ===== Footer ===== */
+.site-footer{
+  background: linear-gradient(180deg, #071a2b 0%, #061424 100%);
+  color: rgba(255,255,255,.8);
+  padding-top: 4.5rem;
+}
+
+.site-footer h5{
+  color: #fff;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+}
+
+.footer-brand{
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #0ea5a4;
+}
+
+.footer-text{
+  max-width: 34ch;
+  margin: 1rem 0 1.4rem 0;
+  color: rgba(255,255,255,.75);
+}
+
+.footer-social a{
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: #0ea5a4;
+  color: #fff;
+  display: inline-grid;
+  place-items: center;
+  margin-right: .5rem;
+  text-decoration: none;
+  font-size: 1.1rem;
+}
+
+.footer-links{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li{
+  margin-bottom: .6rem;
+}
+
+.footer-links a{
+  color: rgba(255,255,255,.75);
+  text-decoration: none;
+}
+
+.footer-links a:hover{
+  color: #0ea5a4;
+  text-decoration: underline;
+}
+
+.footer-contact{
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem 0;
+}
+
+.footer-contact li{
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  margin-bottom: .6rem;
+}
+
+.footer-contact i{
+  color: #0ea5a4;
+  font-size: 1.1rem;
+}
+
+.footer-cta{
+  background: #0ea5a4;
+  color: #fff;
+  border: none;
+  padding: .7rem 1.4rem;
+  border-radius: .6rem;
+  font-weight: 600;
+}
+
+.footer-divider{
+  border-top: 1px solid rgba(255,255,255,.15);
+  margin: 3rem 0;
+}
+
+.newsletter{
+  text-align: center;
+}
+
+.newsletter p{
+  color: rgba(255,255,255,.75);
+  margin-bottom: 1.2rem;
+}
+
+.newsletter-form{
+  display: flex;
+  justify-content: center;
+  gap: .75rem;
+  flex-wrap: wrap;
+}
+
+.newsletter-form input{
+  min-width: 260px;
+  padding: .7rem 1rem;
+  border-radius: .6rem;
+  border: none;
+}
+
+.newsletter-form button{
+  background: #0ea5a4;
+  border: none;
+  color: #fff;
+  padding: .7rem 1.4rem;
+  border-radius: .6rem;
+  font-weight: 600;
+}
+
+.footer-bottom{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.5rem 0;
+  color: rgba(255,255,255,.6);
+  font-size: .9rem;
+}
+
+.footer-bottom a{
+  color: rgba(255,255,255,.6);
+  text-decoration: none;
+  margin-left: 1rem;
+}
+
+.footer-bottom a:hover{
+  color: #0ea5a4;
+}
+
+ .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: #25D366;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      text-decoration: none;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      z-index: 9999;
+    }
+
+    .whatsapp-float:hover {
+      color: white;
+      transform: scale(1.05);
+      transition: 0.2s;
+    }
+
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg bg-white py-3 sticky-top border-bottom">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+        <!-- Logo (imagen pública) -->
+        <img
+          src="logo vevtorial.png"
+          alt="Logo"
+          width="42"
+          height="42"
+          style="object-fit: contain;"
+        />
+        <span style="font-size: 1.6rem;">Cimerwell</span>
+      </a>
+
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#mainNav"
+        aria-controls="mainNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+          <li class="nav-item"><a class="nav-link" href="#nosotros">Nosotros</a></li>
+          <li class="nav-item"><a class="nav-link" href="#servicios">Servicios</a></li>
+          <li class="nav-item"><a class="nav-link" href="#productos">Productos y Catálogos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#clientes">Clientes</a></li>
+
+          <li class="nav-item ms-lg-3">
+            <a class="btn btn-brand" href="#Contacto">Contactanos</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header
+    class="hero"
+    style="
+      background-image: url('https://img.freepik.com/foto-gratis/mujer-paleta-colores-tiro-medio_23-2148903477.jpg?semt=ais_hybrid&w=740&q=80');
+      background-size: cover;
+      background-position: center;
+    "
+  >
+    <div class="container py-5">
+      <div class="row">
+        <div class="col-12 col-lg-7">
+          <h1 class="display-4 display-lg-3 mb-3">
+            10 años conectando<br />
+            producción y mercados en<br />
+            América Latina
+          </h1>
+
+          <p class="mb-4">
+            Agentes comerciales especializados en producción y gestión de importación y exportación
+            de Swimwear, Jeans, Lencería y Fitness para mujer, hombre y niños.
+          </p>
+
+          <div class="d-flex flex-column flex-sm-row gap-3 mt-2">
+            <a class="btn btn-brand" href="#Contacto">Contactanos</a>
+            <a class="btn btn-ghost" href="#servicios">Conocer Servicios</a>
+          </div>
+
+          <div class="hero-note">
+            <span class="dot"><i class="bi bi-check2"></i></span>
+            <span> Red confiable de producción en Oriente </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <a class="scroll-indicator" href="#nosotros" aria-label="Bajar">
+      <i class="bi bi-chevron-down"></i>
+    </a>
+  </header>
+
+  <!-- SECCIONES (placeholders para que el menú funcione) -->
+  <main>
+    <section id="nosotros" class="section-soluciones">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="section-title display-6">Soluciones Integrales para su Negocio</h2>
+      <p class="section-subtitle">
+        Desde el sourcing hasta la entrega final, gestionamos cada etapa de su cadena de suministro
+      </p>
+    </div>
+
+    <div class="row g-4 justify-content-center">
+      <!-- Card 1 -->
+      <div class="col-12 col-md-6 col-lg-3">
+        <div class="feature-card">
+          <div class="feature-icon" aria-hidden="true">
+            <i class="bi bi-search"></i>
+          </div>
+          <h3>Sourcing y Producción</h3>
+          <p>
+            Identificamos proveedores confiables y gestionamos la producción local e internacional
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="col-12 col-md-6 col-lg-3">
+        <div class="feature-card">
+          <div class="feature-icon" aria-hidden="true">
+            <i class="bi bi-truck"></i>
+          </div>
+          <h3>Logística Import/Export</h3>
+          <p>
+            Gestión completa de importación, exportación y trámites aduaneros en toda LATAM
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="col-12 col-md-6 col-lg-3">
+        <div class="feature-card">
+          <div class="feature-icon" aria-hidden="true">
+            <i class="bi bi-tag"></i>
+          </div>
+          <h3>Private Label &amp; OEM</h3>
+          <p>
+            Soluciones de marca propia y manufactura personalizada para su empresa
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="col-12 col-md-6 col-lg-3">
+        <div class="feature-card">
+          <div class="feature-icon" aria-hidden="true">
+            <i class="bi bi-clipboard-check"></i>
+          </div>
+          <h3>Control de Calidad</h3>
+          <p>
+            Inspecciones rigurosas y certificaciones para garantizar estándares superiores
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ////////////////////////////////////////////////////////////////////// -->
+    <section id="servicios" class="section-porque">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <!-- Col izquierda -->
+      <div class="col-12 col-lg-6">
+        <h2 class="display-6 mb-3">¿Por qué elegir Cimerwell?</h2>
+        <p class="lead-muted mb-4">
+          Somos su socio estratégico en el mercado latinoamericano de textiles y confecciones
+        </p>
+
+        <div class="benefit-item">
+          <div class="benefit-icon" aria-hidden="true"><i class="bi bi-award"></i></div>
+          <div>
+            <p class="benefit-title">10+ años de experiencia</p>
+            <p class="benefit-text">
+              Más de una década conectando marcas con productores de calidad en América Latina
+            </p>
+          </div>
+        </div>
+
+        <div class="benefit-item">
+          <div class="benefit-icon" aria-hidden="true"><i class="bi bi-globe-americas"></i></div>
+          <div>
+            <p class="benefit-title">Red regional consolidada</p>
+            <p class="benefit-text">
+              Operaciones en múltiples países de LATAM con conocimiento profundo del mercado local
+            </p>
+          </div>
+        </div>
+
+        <div class="benefit-item">
+          <div class="benefit-icon" aria-hidden="true"><i class="bi bi-truck"></i></div>
+          <div>
+            <p class="benefit-title">Servicio integral de principio a fin</p>
+            <p class="benefit-text">
+              Desde el diseño hasta la entrega, gestionamos cada detalle de su proyecto
+            </p>
+          </div>
+        </div>
+
+        <div class="benefit-item">
+          <div class="benefit-icon" aria-hidden="true"><i class="bi bi-shield-check"></i></div>
+          <div>
+            <p class="benefit-title">Garantía de calidad certificada</p>
+            <p class="benefit-text">
+              Auditorías rigurosas y cumplimiento de estándares internacionales de producción
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Col derecha -->
+      <div class="col-12 col-lg-6">
+        <div class="media-wrap">
+          <div class="media-card">
+            <!-- Imagen pública similar (textil/hilos) -->
+            <img
+              src="oficina2.jpeg"
+              alt="Producción textil"
+            />
+          </div>
+
+          <!-- Badge flotante -->
+          <div class="floating-badge" role="note" aria-label="Años de experiencia">
+            <div class="badge-icon" aria-hidden="true"><i class="bi bi-check2"></i></div>
+            <div>
+              <p class="badge-number">20+</p>
+              <p class="badge-caption">Años de experiencia</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ////////////////////////////////////////////////////////////////////// -->
+    <section id="productos" class="section-productos">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="section-title display-6">Nuestras Categorías de Productos</h2>
+      <p class="section-subtitle">
+        Especialización en confección de indumentaria para mujer, hombre y niños
+      </p>
+    </div>
+
+    <div class="row g-4 justify-content-center">
+      <!-- 1: Trajes de Baño -->
+      <div class="col-12 col-md-6 col-lg-3">
+        <article class="product-card">
+          <div
+            class="bg"
+            style="background-image:url('https://lh7-us.googleusercontent.com/NatNCaNJbIBrrWKfKwB4WmG71wLk71OtMm7Yn2sIagEaiQqSHOsfefWqpmMCxbjINRawfyGPMVf6uABNkNpTS1FzyyKu8tZsSf2AlORJEnJnTiApjDW9_ZwWr1gLW8FpcsKgnQicy5yQBRZFakEWe_M');"
+          ></div>
+          <div class="product-content">
+            <h3 class="product-title">Swimwear</h3>
+            <p class="product-desc">Colecciones completas para todas las edades</p>
+             <!-- <a class="product-link" href="#" aria-label="Ver catálogo Swimwear">
+              Ver catálogo <i class="bi bi-arrow-right"></i> -->
+            </a>
+          </div>
+        </article>
+      </div>
+
+      <!-- 2: Jeans -->
+      <div class="col-12 col-md-6 col-lg-3">
+        <article class="product-card">
+          <div
+            class="bg"
+            style="background-image:url('https://studiofch.vtexassets.com/arquivos/ids/349998/-stfch-producto-Enterizosconjuntos-AZUL-S123517D-1.jpg?v=638647812251100000');"
+          ></div>
+          <div class="product-content">
+            <h3 class="product-title"> Jeans</h3>
+            <p class="product-desc">Diseños versátiles y elegantes</p>
+             <!-- <a class="product-link" href="#" aria-label="Ver catálogo Jeans">
+              Ver catálogo <i class="bi bi-arrow-right"></i> -->
+            </a>
+          </div>
+        </article>
+      </div>
+
+      <!-- 3: Ropa Interior -->
+      <div class="col-12 col-md-6 col-lg-3">
+        <article class="product-card">
+          <div
+            class="bg"
+            style="background-image:url('https://calvinuruguay.vtexassets.com/arquivos/ids/213526-1712-2256?v=638927490373400000&width=1712&height=2256&aspect=true');"
+          ></div>
+          <div class="product-content">
+            <h3 class="product-title"> Lencería</h3>
+            <p class="product-desc">Confort y calidad certificada</p>
+             <!-- <a class="product-link" href="#" aria-label="Ver catálogo Lencería">
+              Ver catálogo <i class="bi bi-arrow-right"></i> -->
+            </a>
+          </div>
+        </article>
+      </div>
+
+      <!-- 4: Ropa Deportiva -->
+      <div class="col-12 col-md-6 col-lg-3">
+        <article class="product-card">
+          <div
+            class="bg"
+            style="background-image:url('https://phantom-telva.unidadeditorial.es/4ddb7e2bd88922a93dca136bc61e17ab/resize/1200/f/jpg/assets/multimedia/imagenes/2021/05/31/16224683859370.jpg');"
+          ></div>
+          <div class="product-content">
+            <h3 class="product-title">Fitness</h3>
+            <p class="product-desc">Performance y estilo combinados</p>
+             <!-- <a class="product-link" href="#" aria-label="Ver catálogo Fitness">
+              Ver catálogo <i class="bi bi-arrow-right"></i> -->
+            </a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+ <!-- Botón flotante de WhatsApp -->
+  <a 
+    href="https://wa.me/59893733211?text=Hola%2C%20quiero%20más%20información" 
+    class="whatsapp-float" 
+    target="_blank"
+    aria-label="Contactar por WhatsApp"
+  >
+    <i class="bi bi-whatsapp"></i>
+  </a>
+
+<!-- ////////////////////////////////////////////////////////////////////// 
+    <section id="clientes" class="py-5 bg-light">
+      <div class="container">
+        <h2 class="h3 mb-3">Clientes</h2>
+        <p class="text-muted mb-0">Sección de contenido (placeholder).</p>
+      </div>
+    </section>
+ ////////////////////////////////////////////////////////////////////// -->
+    
+    <footer class="site-footer" id="Contacto">
+  <div class="container">
+    <!-- Top -->
+    <div class="row g-4">
+      <!-- Brand -->
+      <div class="col-12 col-lg-4">
+        <div class="footer-brand">
+          <img
+            src="logo vevtorial.png"
+            alt="Cimerwell"
+            width="46"
+          />
+          Cimerwell
+        </div>
+        <p class="footer-text">
+          10+ años conectando producción y mercados en América Latina
+        </p>
+        <div class="footer-social">
+          <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+        </div>
+      </div>
+
+      <!-- Enlaces rápidos -->
+      <div class="col-6 col-lg-2">
+        <h5>Enlaces Rápidos</h5>
+        <ul class="footer-links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#nosotros">Nosotros</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#productos">Productos y Catálogos</a></li>
+          <li><a href="#clientes">Clientes</a></li>
+        </ul>
+      </div>
+
+      <!-- Servicios -->
+      <div class="col-6 col-lg-3">
+        <h5>Nuestros Servicios</h5>
+        <ul class="footer-links">
+          <li>Sourcing y Producción</li>
+          <li>Import/Export</li>
+          <li>Private Label &amp; OEM</li>
+          <li>Control de Calidad</li>
+          <li>Logística Integral</li>
+        </ul>
+      </div>
+
+      <!-- Contacto -->
+      <div class="col-12 col-lg-3">
+        <h5>Contacto</h5>
+        <ul class="footer-contact">
+          <li><i class="bi bi-geo-alt"></i> Montevideo, Uruguay</li>
+          <li><i class="bi bi-envelope"></i> ventas@cimerwell.com.uy</li>
+          <li><i class="bi bi-telephone"></i>  6061983</li>
+          <li><i class="bi bi-telephone"></i> +598 93 733 211</li>
+        </ul>
+        <button class="footer-cta">Contactar</button>
+      </div>
+    </div>
+
+      <!-- <div class="footer-divider"></div>
+        por si aca pinta poner algo mas despues
+
+    <div class="footer-divider"></div>-->
+
+    <!-- Bottom -->
+    <div class="footer-bottom">
+      <div>© 2026 Cimerwell. Todos los derechos reservados.</div>
+      <div>
+        <a href="#">Política de Privacidad</a>
+        <a href="#">Términos de Servicio</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  </main>
+<!-- ////////////////////////////////////////////////////////////////////// -->
+  <!-- Bootstrap JS -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"
+  ></script>
+
+  <!-- (Opcional) Smooth scroll -->
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach((a) => {
+      a.addEventListener("click", (e) => {
+        const id = a.getAttribute("href");
+        const el = document.querySelector(id);
+        if (!el) return;
+        e.preventDefault();
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    });
+  </script>
+</body>
